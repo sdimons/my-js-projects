@@ -9,7 +9,8 @@
  /**
   * Типы данных:
   * 1. Примитивные
-  * - Number: 2020, 1.5, NaN, Infinity
+  * - Number: 2020, 1.5, NaN (означает вычислительную ошибку), Infinity (математическую бесконечность)
+  * - BigInt: способ представления целых чисел, которые больше 2^53
   * - String: "Hello", 'Hello', `Hello`
   * - Boolean: true, false
   * - Null: null (значение неизвестно, считается отдельным типом)
@@ -20,6 +21,9 @@
   console.log(2020, 1.5); // 2020 1.5
   console.log(20 * 'start'); // NaN
   console.log(1 / 0); // Infinity
+  console.log(1 / -0); // -Infinity
+  console.log(Number.MIN_VALUE); // получение самого меньшего доступного значения в пределах +/-Infinity
+  console.log(Number.MAX_VALUE); // получение самого большого доступного значения в пределах +/-Infinity
 
   console.log("Hello", 'Hello', `Hello`); // Hello Hello Hello
 
@@ -32,6 +36,9 @@
   console.log(und); // undefined
   
   console.log(Symbol());
+
+  // символ "n" в конце означает, что это BigInt
+  const bigInt = 1234567890123456789012345678901234567890n;
 
  /**
   * Типы данных:
@@ -63,3 +70,11 @@
  var foo = 42;  // сейчас foo типа Number
  foo = "bar";   // а теперь foo типа String
  foo = true;    // foo становится типа Boolean
+
+ /**
+  * Оператор typeof:
+  * возвращает тип аргумента
+  * typeof x или typeof(x)
+  */
+ console.log(typeof foo);
+ console.log(typeof(bigInt));
